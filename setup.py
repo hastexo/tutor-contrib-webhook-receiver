@@ -30,7 +30,8 @@ setup(
     url="https://github.com/hastexo/tutor-contrib-webhook-receiver",
     project_urls={
         "Code": "https://github.com/hastexo/tutor-contrib-webhook-receiver",
-        "Issue tracker": "https://github.com/hastexo/tutor-contrib-webhook-receiver/issues",
+        "Issue tracker":
+            "https://github.com/hastexo/tutor-contrib-webhook-receiver/issues",
     },
     license="AGPLv3",
     author="hastexo",

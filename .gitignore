@@ -6,3 +6,6 @@ __pycache__
 /build/
 /dist/
 .idea
+.python-version
+.tox
+tests/tutor-sandbox/config.yml
