@@ -1,0 +1,1 @@
+django-admin migrate --pythonpath ./ --settings webhook_receiver.settings.production

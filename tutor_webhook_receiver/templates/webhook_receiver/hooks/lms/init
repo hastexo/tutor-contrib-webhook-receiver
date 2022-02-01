@@ -1,0 +1,11 @@
+# create a user for webhook-receiver application
+./manage.py lms manage_user webhook_receiver_app_user webhook_receiver_app_user@openedx --staff --superuser --unusable-password
+
+# create OAuth2 client
+./manage.py lms create_dot_application \
+  --grant-type client-credentials \
+  --client-id {{ WEBHOOK_RECEIVER_EDX_OAUTH2_KEY }} \
+  --client-secret {{ WEBHOOK_RECEIVER_EDX_OAUTH2_SECRET }} \
+  --update \
+  webhook_receiver \
+  webhook_receiver_app_user

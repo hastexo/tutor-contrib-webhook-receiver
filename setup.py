@@ -6,7 +6,7 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 
 
 def load_readme():
-    with io.open(os.path.join(HERE, "README.rst"), "rt", encoding="utf8") as f:
+    with io.open(os.path.join(HERE, "README.md"), "rt", encoding="utf8") as f:
         return f.read()
 
 
@@ -23,13 +23,14 @@ setup(
     author="hastexo",
     description="webhook-receiver plugin for Tutor",
     long_description=load_readme(),
+    long_description_content_type='text/markdown',
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.8",
     install_requires=["tutor"],
     entry_points={
         "tutor.plugin.v0": [
-            "webhook-receiver = tutor_webhook_receiver.plugin"
+            "webhook_receiver = tutor_webhook_receiver.plugin"
         ]
     },
     classifiers=[
