@@ -10,23 +10,9 @@ def load_readme():
         return f.read()
 
 
-def load_about():
-    about = {}
-    with io.open(
-        os.path.join(HERE, "tutor_webhook_receiver", "__about__.py"),
-        "rt",
-        encoding="utf-8",
-    ) as f:
-        exec(f.read(), about)  # pylint: disable=exec-used
-    return about
-
-
-ABOUT = load_about()
-
-
 setup(
     name="tutor-contrib-webhook-receiver",
-    version=ABOUT["__version__"],
+    use_scm_version=True,
     url="https://github.com/hastexo/tutor-contrib-webhook-receiver",
     project_urls={
         "Code": "https://github.com/hastexo/tutor-contrib-webhook-receiver",
