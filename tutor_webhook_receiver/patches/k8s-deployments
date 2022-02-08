@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: webhook_receiver
-          image: {{ DOCKER_REGISTRY }}{{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}
+          image: {{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}
           ports:
             - containerPort: 8090
           env:

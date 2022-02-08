@@ -14,7 +14,7 @@ config = {
         "EDX_OAUTH2_SECRET": "{{ 32|random_string }}",
     },
     "defaults": {
-        "DOCKER_IMAGE": "webhook_receiver/webhook_receiver:latest",
+        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}webhook_receiver/webhook_receiver:latest",  # noqa: E501
         "HOST": "webhooks.{{ LMS_HOST }}",
         "DB_NAME": "webhook_receiver",
         "DB_USER": "webhook_receiver01",
