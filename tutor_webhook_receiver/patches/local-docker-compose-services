@@ -1,5 +1,5 @@
 ############# Webhook-receiver
-webhook_receiver:
+webhook-receiver:
   image: {{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}
   command: gunicorn --env DJANGO_SETTINGS_MODULE=webhook_receiver.settings.production webhook_receiver.wsgi:application --bind 0.0.0.0:8090
   ports:

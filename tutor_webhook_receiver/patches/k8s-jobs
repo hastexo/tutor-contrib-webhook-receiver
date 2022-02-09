@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: webhook_receiver-job
+  name: webhook-receiver-job
   labels:
     app.kubernetes.io/component: job
 spec:
@@ -10,7 +10,7 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-        - name: webhook_receiver
+        - name: webhook-receiver
           image: {{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}
           env:
             - name: DB_MIGRATION_ENGINE

@@ -14,7 +14,7 @@ config = {
         "EDX_OAUTH2_SECRET": "{{ 32|random_string }}",
     },
     "defaults": {
-        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}webhook_receiver/webhook_receiver:latest",  # noqa: E501
+        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}webhook-receiver/webhook-receiver:latest",  # noqa: E501
         "HOST": "webhooks.{{ LMS_HOST }}",
         "DB_NAME": "webhook_receiver",
         "DB_USER": "webhook_receiver01",
@@ -32,10 +32,10 @@ config = {
 
 hooks = {
     "build-image": {
-        "webhook_receiver": "{{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}",
+        "webhook-receiver": "{{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}",
     },
     "remote-image": {
-        "webhook_receiver": "{{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}",
+        "webhook-receiver": "{{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}",
     },
     "init": ["mysql", "lms", "webhook_receiver"]
 }

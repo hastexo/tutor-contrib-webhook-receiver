@@ -1,4 +1,4 @@
-webhook_receiver-job:
+webhook-receiver-job:
   image: {{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}
   environment:
       - DB_MIGRATION_ENGINE=django.db.backends.mysql

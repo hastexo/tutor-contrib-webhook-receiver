@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webhook_receiver
+  name: webhook-receiver
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webhook_receiver
+      app: webhook-receiver
   template:
     metadata:
       labels:
-        app: webhook_receiver
+        app: webhook-receiver
     spec:
       containers:
-        - name: webhook_receiver
+        - name: webhook-receiver
           image: {{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}
           ports:
             - containerPort: 8090

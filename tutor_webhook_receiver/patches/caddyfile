@@ -1,4 +1,4 @@
 # Webhook-receiver
 {{ WEBHOOK_RECEIVER_HOST }}{$default_site_port} {
-    import proxy "webhook_receiver:8090"
+    import proxy "webhook-receiver:8090"
 }
