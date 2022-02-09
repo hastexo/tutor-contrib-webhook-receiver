@@ -13,27 +13,27 @@ Installation
 
 Then, to enable this plugin, run:
 
-    tutor plugins enable webhook_receiver
+    tutor plugins enable webhookreceiver
 
 Before starting Tutor, build the docker image for the 
-`webhook_receiver` service:
+`webhookreceiver` service:
 
-    tutor images build webhook_receiver
+    tutor images build webhookreceiver
 
 
 Configuration
 -------------
 
-* `WEBHOOK_RECEIVER_HOST` (default `"webhooks.{{ LMS_HOST }}"`)
-* `WEBHOOK_RECEIVER_DB_NAME` (default `"webhook_receiver"`)
-* `WEBHOOK_RECEIVER_DB_USER` (default `"webhook_receiver01"`)
-* `WEBHOOK_RECEIVER_DB_MIGRATION_OPTIONS` (default `{}`)
-* `WEBHOOK_RECEIVER_DJANGO_LOG_LEVEL` (default `"DEBUG"`)
-* `WEBHOOK_RECEIVER_EDX_OAUTH2_KEY` (default `"webhook_receiver"`)
-* `WEBHOOK_RECEIVER_SHOPIFY_SHOP_DOMAIN` (default `""`)
-* `WEBHOOK_RECEIVER_SHOPIFY_API_KEY` (default `""`)
-* `WEBHOOK_RECEIVER_WOOCOMMERCE_SOURCE` (default `""`)
-* `WEBHOOK_RECEIVER_WOOCOMMERCE_SECRET` (default `""`)
+* `WEBHOOKRECEIVER_HOST` (default `"webhooks.{{ LMS_HOST }}"`)
+* `WEBHOOKRECEIVER_DB_NAME` (default `"webhook_receiver"`)
+* `WEBHOOKRECEIVER_DB_USER` (default `"webhook_receiver01"`)
+* `WEBHOOKRECEIVER_DB_MIGRATION_OPTIONS` (default `{}`)
+* `WEBHOOKRECEIVER_DJANGO_LOG_LEVEL` (default `"DEBUG"`)
+* `WEBHOOKRECEIVER_EDX_OAUTH2_KEY` (default `"webhook_receiver"`)
+* `WEBHOOKRECEIVER_SHOPIFY_SHOP_DOMAIN` (default `""`)
+* `WEBHOOKRECEIVER_SHOPIFY_API_KEY` (default `""`)
+* `WEBHOOKRECEIVER_WOOCOMMERCE_SOURCE` (default `""`)
+* `WEBHOOKRECEIVER_WOOCOMMERCE_SECRET` (default `""`)
 
 These values can be modified with `tutor config save --set
 PARAM_NAME=VALUE` commands.

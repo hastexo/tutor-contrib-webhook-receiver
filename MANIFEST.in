@@ -1,2 +1,2 @@
-recursive-include tutor_webhook_receiver/patches *
-recursive-include tutor_webhook_receiver/templates *
+recursive-include tutorwebhookreceiver/patches *
+recursive-include tutorwebhookreceiver/templates *

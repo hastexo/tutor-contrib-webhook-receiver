@@ -30,7 +30,7 @@ setup(
     install_requires=["tutor"],
     entry_points={
         "tutor.plugin.v0": [
-            "webhook_receiver = tutor_webhook_receiver.plugin"
+            "webhookreceiver = tutorwebhookreceiver.plugin"
         ]
     },
     classifiers=[

@@ -4,7 +4,7 @@ import pkg_resources
 
 
 templates = pkg_resources.resource_filename(
-    "tutor_webhook_receiver", "templates"
+    "tutorwebhookreceiver", "templates"
 )
 
 config = {
@@ -14,7 +14,7 @@ config = {
         "EDX_OAUTH2_SECRET": "{{ 32|random_string }}",
     },
     "defaults": {
-        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}webhook_receiver/webhook_receiver:latest",  # noqa: E501
+        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}webhookreceiver/webhookreceiver:latest",  # noqa: E501
         "HOST": "webhooks.{{ LMS_HOST }}",
         "DB_NAME": "webhook_receiver",
         "DB_USER": "webhook_receiver01",
@@ -32,19 +32,19 @@ config = {
 
 hooks = {
     "build-image": {
-        "webhook_receiver": "{{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}",
+        "webhookreceiver": "{{ WEBHOOKRECEIVER_DOCKER_IMAGE }}",
     },
     "remote-image": {
-        "webhook_receiver": "{{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}",
+        "webhookreceiver": "{{ WEBHOOKRECEIVER_DOCKER_IMAGE }}",
     },
-    "init": ["mysql", "lms", "webhook_receiver"]
+    "init": ["mysql", "lms", "webhookreceiver"]
 }
 
 
 def patches():
     all_patches = {}
     patches_dir = pkg_resources.resource_filename(
-        "tutor_webhook_receiver", "patches"
+        "tutorwebhookreceiver", "patches"
     )
     for path in glob(os.path.join(patches_dir, "*")):
         with open(path) as patch_file:

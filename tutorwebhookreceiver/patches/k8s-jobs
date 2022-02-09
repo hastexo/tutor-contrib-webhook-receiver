@@ -1,0 +1,47 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: webhookreceiver-job
+  labels:
+    app.kubernetes.io/component: job
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: webhookreceiver
+          image: {{ WEBHOOKRECEIVER_DOCKER_IMAGE }}
+          env:
+            - name: DB_MIGRATION_ENGINE
+              value: 'django.db.backends.mysql'
+            - name: DB_MIGRATION_NAME
+              value: '{{ WEBHOOKRECEIVER_DB_NAME }}'
+            - name: DB_MIGRATION_USER
+              value: '{{ WEBHOOKRECEIVER_DB_USER }}'
+            - name: DB_MIGRATION_PASS
+              value: '{{ WEBHOOKRECEIVER_DB_PASSWORD }}'
+            - name: DB_MIGRATION_HOST
+              value: '{{ MYSQL_HOST }}'
+            - name: DB_MIGRATION_PORT
+              value: '{{ MYSQL_PORT }}'
+            - name: DB_MIGRATION_OPTIONS
+              value: '{{ WEBHOOKRECEIVER_DB_MIGRATION_OPTIONS|tojson }}'
+            - name: DJANGO_SECRET_KEY
+              value: '{{ WEBHOOKRECEIVER_DJANGO_SECRET_KEY }}'
+            - name: DJANGO_WEBHOOK_RECEIVER_LMS_BASE_URL
+              value: '{{ WEBHOOKRECEIVER_LMS_ROOT_URL }}'
+            - name: DJANGO_WEBHOOK_RECEIVER_EDX_OAUTH2_KEY
+              value: '{{ WEBHOOKRECEIVER_EDX_OAUTH2_KEY }}'
+            - name: DJANGO_WEBHOOK_RECEIVER_EDX_OAUTH2_SECRET
+              value: '{{ WEBHOOKRECEIVER_EDX_OAUTH2_SECRET }}'
+            - name: DJANGO_WEBHOOK_RECEIVER_SETTINGS_SHOPIFY_SHOP_DOMAIN
+              value: '{{ WEBHOOKRECEIVER_SHOPIFY_SHOP_DOMAIN }}'
+            - name: DJANGO_WEBHOOK_RECEIVER_SETTINGS_SHOPIFY_API_KEY
+              value: '{{ WEBHOOKRECEIVER_SHOPIFY_API_KEY }}'
+            - name: DJANGO_WEBHOOK_RECEIVER_SETTINGS_WOOCOMMERCE_SOURCE
+              value: '{{ WEBHOOKRECEIVER_WOOCOMMERCE_SOURCE }}'
+            - name: DJANGO_WEBHOOK_RECEIVER_SETTINGS_WOOCOMMERCE_SECRET
+              value: '{{ WEBHOOKRECEIVER_WOOCOMMERCE_SECRET }}'
+            - name: DJANGO_LOG_LEVEL
+              value: '{{ WEBHOOKRECEIVER_DJANGO_LOG_LEVEL }}'

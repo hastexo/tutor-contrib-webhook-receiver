@@ -2,52 +2,54 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webhook_receiver
+  name: webhookreceiver
+  labels:
+    app.kubernetes.io/name: webhookreceiver
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webhook_receiver
+      app.kubernetes.io/name: webhookreceiver
   template:
     metadata:
       labels:
-        app: webhook_receiver
+        app.kubernetes.io/name: webhookreceiver
     spec:
       containers:
-        - name: webhook_receiver
-          image: {{ WEBHOOK_RECEIVER_DOCKER_IMAGE }}
+        - name: webhookreceiver
+          image: {{ WEBHOOKRECEIVER_DOCKER_IMAGE }}
           ports:
             - containerPort: 8090
           env:
             - name: DB_MIGRATION_ENGINE
               value: 'django.db.backends.mysql'
             - name: DB_MIGRATION_NAME
-              value: '{{ WEBHOOK_RECEIVER_DB_NAME }}'
+              value: '{{ WEBHOOKRECEIVER_DB_NAME }}'
             - name: DB_MIGRATION_USER
-              value: '{{ WEBHOOK_RECEIVER_DB_USER }}'
+              value: '{{ WEBHOOKRECEIVER_DB_USER }}'
             - name: DB_MIGRATION_PASS
-              value: '{{ WEBHOOK_RECEIVER_DB_PASSWORD }}'
+              value: '{{ WEBHOOKRECEIVER_DB_PASSWORD }}'
             - name: DB_MIGRATION_HOST
               value: '{{ MYSQL_HOST }}'
             - name: DB_MIGRATION_PORT
               value: '{{ MYSQL_PORT }}'
             - name: DB_MIGRATION_OPTIONS
-              value: '{{ WEBHOOK_RECEIVER_DB_MIGRATION_OPTIONS|tojson }}'
+              value: '{{ WEBHOOKRECEIVER_DB_MIGRATION_OPTIONS|tojson }}'
             - name: DJANGO_SECRET_KEY
-              value: '{{ WEBHOOK_RECEIVER_DJANGO_SECRET_KEY }}'
+              value: '{{ WEBHOOKRECEIVER_DJANGO_SECRET_KEY }}'
             - name: DJANGO_WEBHOOK_RECEIVER_LMS_BASE_URL
-              value: '{{ WEBHOOK_RECEIVER_LMS_ROOT_URL }}'
+              value: '{{ WEBHOOKRECEIVER_LMS_ROOT_URL }}'
             - name: DJANGO_WEBHOOK_RECEIVER_EDX_OAUTH2_KEY
-              value: '{{ WEBHOOK_RECEIVER_EDX_OAUTH2_KEY }}'
+              value: '{{ WEBHOOKRECEIVER_EDX_OAUTH2_KEY }}'
             - name: DJANGO_WEBHOOK_RECEIVER_EDX_OAUTH2_SECRET
-              value: '{{ WEBHOOK_RECEIVER_EDX_OAUTH2_SECRET }}'
+              value: '{{ WEBHOOKRECEIVER_EDX_OAUTH2_SECRET }}'
             - name: DJANGO_WEBHOOK_RECEIVER_SETTINGS_SHOPIFY_SHOP_DOMAIN
-              value: '{{ WEBHOOK_RECEIVER_SHOPIFY_SHOP_DOMAIN }}'
+              value: '{{ WEBHOOKRECEIVER_SHOPIFY_SHOP_DOMAIN }}'
             - name: DJANGO_WEBHOOK_RECEIVER_SETTINGS_SHOPIFY_API_KEY
-              value: '{{ WEBHOOK_RECEIVER_SHOPIFY_API_KEY }}'
+              value: '{{ WEBHOOKRECEIVER_SHOPIFY_API_KEY }}'
             - name: DJANGO_WEBHOOK_RECEIVER_SETTINGS_WOOCOMMERCE_SOURCE
-              value: '{{ WEBHOOK_RECEIVER_WOOCOMMERCE_SOURCE }}'
+              value: '{{ WEBHOOKRECEIVER_WOOCOMMERCE_SOURCE }}'
             - name: DJANGO_WEBHOOK_RECEIVER_SETTINGS_WOOCOMMERCE_SECRET
-              value: '{{ WEBHOOK_RECEIVER_WOOCOMMERCE_SECRET }}'
+              value: '{{ WEBHOOKRECEIVER_WOOCOMMERCE_SECRET }}'
             - name: DJANGO_LOG_LEVEL
-              value: '{{ WEBHOOK_RECEIVER_DJANGO_LOG_LEVEL }}'
+              value: '{{ WEBHOOKRECEIVER_DJANGO_LOG_LEVEL }}'
