@@ -8,3 +8,6 @@ RUN apt-get update && \
 WORKDIR ./webhooks
 RUN pip install --upgrade pip && \
     pip install -r requirements/production.txt --exists-action w
+EXPOSE 8090
+CMD ["gunicorn", "--env", "DJANGO_SETTINGS_MODULE=webhook_receiver.settings.production",
+    "webhook_receiver.wsgi:application", "--bind", "0.0.0.0:8090"]

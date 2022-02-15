@@ -1,7 +1,6 @@
 ############# webhookreceiver
 webhookreceiver:
   image: {{ WEBHOOKRECEIVER_DOCKER_IMAGE }}
-  command: gunicorn --env DJANGO_SETTINGS_MODULE=webhook_receiver.settings.production webhook_receiver.wsgi:application --bind 0.0.0.0:8090
   ports:
       - "8090:8090"
   restart: unless-stopped
