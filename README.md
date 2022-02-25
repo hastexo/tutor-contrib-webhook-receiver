@@ -9,7 +9,7 @@ application alongside Open edX.
 Installation
 ------------
 
-    pip install git+https://github.com/hastexo/tutor-contrib-webhook-receiver@v0.0.0
+    pip install git+https://github.com/hastexo/tutor-contrib-webhook-receiver@v0.0.1
 
 Then, to enable this plugin, run:
 

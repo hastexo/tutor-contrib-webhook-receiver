@@ -1,4 +1,4 @@
-## Unreleased
+## Version 0.0.1 (2022-02-25)
 
 **Experimental. Do not use in production.**
 
