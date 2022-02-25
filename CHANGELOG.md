@@ -1,4 +1,4 @@
-## Unreleased
+## Version 0.0.2 (2022-02-25)
 
 * Fix version number as it appears in pip list (previously, all
   installations would show up as version 0.0.0, including
