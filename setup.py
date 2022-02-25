@@ -28,6 +28,7 @@ setup(
     include_package_data=True,
     python_requires=">=3.8",
     install_requires=["tutor"],
+    setup_requires=["setuptools-scm"],
     entry_points={
         "tutor.plugin.v0": [
             "webhookreceiver = tutorwebhookreceiver.plugin"
