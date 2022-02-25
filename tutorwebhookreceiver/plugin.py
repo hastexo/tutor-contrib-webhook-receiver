@@ -1,3 +1,4 @@
+from .__about__ import __version__
 from glob import glob
 import os
 import pkg_resources
@@ -14,7 +15,8 @@ config = {
         "EDX_OAUTH2_SECRET": "{{ 32|random_string }}",
     },
     "defaults": {
-        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}webhookreceiver/webhookreceiver:latest",  # noqa: E501
+        "VERSION": __version__,
+        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}webhookreceiver:{{ WEBHOOKRECEIVER_VERSION }}",  # noqa: E501
         "HOST": "webhooks.{{ LMS_HOST }}",
         "DB_NAME": "webhook_receiver",
         "DB_USER": "webhook_receiver01",
