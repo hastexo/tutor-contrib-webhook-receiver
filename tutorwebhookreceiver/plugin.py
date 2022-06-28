@@ -2,14 +2,11 @@ from .__about__ import __version__
 from glob import glob
 import os
 import pkg_resources
+from tutor import hooks
 
-
-templates = pkg_resources.resource_filename(
-    "tutorwebhookreceiver", "templates"
-)
 
 config = {
-    "add": {
+    "unique": {
         "DB_PASSWORD": "{{ 32|random_string }}",
         "DJANGO_SECRET_KEY": "{{ 50|random_string }}",
         "EDX_OAUTH2_SECRET": "{{ 32|random_string }}",
@@ -32,25 +29,63 @@ config = {
     },
 }
 
-hooks = {
-    "build-image": {
-        "webhookreceiver": "{{ WEBHOOKRECEIVER_DOCKER_IMAGE }}",
-    },
-    "remote-image": {
-        "webhookreceiver": "{{ WEBHOOKRECEIVER_DOCKER_IMAGE }}",
-    },
-    "init": ["mysql", "lms", "webhookreceiver"]
-}
+for service in ["mysql", "lms", "webhookreceiver"]:
+    hooks.Filters.COMMANDS_INIT.add_item((
+        service,
+        ("webhookreceiver", "tasks", service, "init"),
+    ))
 
+hooks.Filters.IMAGES_BUILD.add_item((
+    "webhookreceiver",
+    ("plugins", "webhookreceiver", "build", "webhookreceiver"),
+    "{{ WEBHOOKRECEIVER_DOCKER_IMAGE }}",
+    (),
+))
 
-def patches():
-    all_patches = {}
-    patches_dir = pkg_resources.resource_filename(
-        "tutorwebhookreceiver", "patches"
+hooks.Filters.IMAGES_PULL.add_item((
+    "webhookreceiver",
+    "{{ WEBHOOKRECEIVER_DOCKER_IMAGE }}",
+))
+hooks.Filters.IMAGES_PUSH.add_item((
+    "webhookreceiver",
+    "{{ WEBHOOKRECEIVER_DOCKER_IMAGE }}",
+))
+
+# Add the "templates" folder as a template root
+hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
+    pkg_resources.resource_filename("tutorwebhookreceiver", "templates")
+)
+# Render the "build" and "apps" folders
+hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
+    [
+        ("webhookreceiver/build", "plugins"),
+        ("webhookreceiver/apps", "plugins"),
+    ],
+)
+# Load patches from files
+for path in glob(
+    os.path.join(
+        pkg_resources.resource_filename("tutorwebhookreceiver", "patches"),
+        "*",
     )
-    for path in glob(os.path.join(patches_dir, "*")):
-        with open(path) as patch_file:
-            name = os.path.basename(path)
-            content = patch_file.read()
-            all_patches[name] = content
-    return all_patches
+):
+    with open(path, encoding="utf-8") as patch_file:
+        hooks.Filters.ENV_PATCHES.add_item(
+            (os.path.basename(path), patch_file.read())
+        )
+# Add configuration entries
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [
+        (f"WEBHOOKRECEIVER_{key}", value)
+        for key, value in config.get("defaults", {}).items()
+    ]
+)
+hooks.Filters.CONFIG_UNIQUE.add_items(
+    [
+        (f"WEBHOOKRECEIVER_{key}", value)
+        for key, value in config.get("unique", {}).items()
+    ]
+)
+hooks.Filters.CONFIG_OVERRIDES.add_items(
+    list(config.get("overrides", {}).items())
+)
