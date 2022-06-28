@@ -1,3 +1,7 @@
+## Unreleased
+
+* [refactor] Use Tutor v1 plugin API
+
 ## Version 0.0.2 (2022-02-25)
 
 * Fix version number as it appears in pip list (previously, all
