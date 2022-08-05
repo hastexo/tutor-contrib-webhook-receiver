@@ -28,7 +28,7 @@ Version compatibility matrix
 Installation
 ------------
 
-    pip install git+https://github.com/hastexo/tutor-contrib-webhook-receiver@v0.1.0
+    pip install git+https://github.com/hastexo/tutor-contrib-webhook-receiver@v1.0.0
 
 Then, to enable this plugin, run:
 
