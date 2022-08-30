@@ -1,4 +1,4 @@
-## Unreleased
+## Version 1.0.1 (2022-08-30)
 
 * [fix] Change lms-env-features patch to YAML format.
 
