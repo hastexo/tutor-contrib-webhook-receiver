@@ -1,3 +1,7 @@
+## Unreleased
+
+* [fix] Change lms-env-features patch to YAML format.
+
 ## Version 1.0.0 (2022-08-05)
 
 * [BREAKING CHANGE] Support Tutor 14 and Open edX Nutmeg. This entails
