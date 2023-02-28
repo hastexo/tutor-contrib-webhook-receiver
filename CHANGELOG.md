@@ -1,3 +1,12 @@
+## Unreleased
+
+* [BREAKING CHANGE] Add support for Tutor 15 and Open edX Olive.
+  Tutor version 15.0.0 includes changes to the implementation of
+  custom commands and thus requires changes in this plugin as well
+  that are not backwards compatible.
+  From version 2.0.0 this plugin only supports Tutor versions
+  from 15.0.0 and Open edX Olive release.
+
 ## Version 1.0.1 (2022-08-30)
 
 * [fix] Change lms-env-features patch to YAML format.

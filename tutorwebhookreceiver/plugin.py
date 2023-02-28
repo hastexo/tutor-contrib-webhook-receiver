@@ -30,10 +30,13 @@ config = {
 }
 
 for service in ["mysql", "lms", "webhookreceiver"]:
-    hooks.Filters.COMMANDS_INIT.add_item((
-        service,
-        ("webhookreceiver", "tasks", service, "init"),
-    ))
+    path = pkg_resources.resource_filename(
+        "tutorwebhookreceiver", os.path.join(
+            "templates", "webhookreceiver", "tasks", service, "init")
+    )
+    with open(path, encoding="utf-8") as task_file:
+        task = task_file.read()
+    hooks.Filters.CLI_DO_INIT_TASKS.add_item((service, task))
 
 hooks.Filters.IMAGES_BUILD.add_item((
     "webhookreceiver",
