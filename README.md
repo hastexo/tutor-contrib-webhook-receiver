@@ -31,7 +31,7 @@ appropriate one:
 Installation
 ------------
 
-    pip install git+https://github.com/hastexo/tutor-contrib-webhook-receiver@v2.0.0
+    pip install git+https://github.com/hastexo/tutor-contrib-webhook-receiver@v2.1.0
 
 Then, to enable this plugin, run:
 
