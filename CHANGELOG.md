@@ -1,4 +1,4 @@
-## Unreleased
+## Version 2.1.1 (2023-09-08)
 
 * [fix] In the init job, ensure compatibility with MySQL 8.
 
