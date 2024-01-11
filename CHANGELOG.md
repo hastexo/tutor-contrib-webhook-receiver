@@ -1,3 +1,7 @@
+## Unreleased
+
+* [Enhancement] Support Tutor 17 and Open edX Quince.
+
 ## Version 2.1.1 (2023-09-08)
 
 * [fix] In the init job, ensure compatibility with MySQL 8.
