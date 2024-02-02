@@ -26,6 +26,7 @@ config = {
         "SHOPIFY_API_KEY": "",
         "WOOCOMMERCE_SOURCE": "",
         "WOOCOMMERCE_SECRET": "",
+        "WOOCOMMERCE_REQUIRE_PAYMENT": "",
     },
 }
 
