@@ -1,3 +1,7 @@
+## Version 2.3.0 (2024-02-07)
+
+* [Enhancement] Add a new configuration variable, `WEBHOOKRECEIVER_WOOCOMMERCE_REQUIRE_PAYMENT`, for requiring completed payment on WooCommerce orders.
+
 ## Version 2.2.0 (2024-01-12)
 
 * [Enhancement] Support Tutor 17 and Open edX Quince.
