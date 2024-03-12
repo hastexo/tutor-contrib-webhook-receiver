@@ -1,6 +1,7 @@
 ## Unreleased
 
 * [Enhancement] Make the location and revision of the webhook-receiver application repository configurable.
+* [Fix] Populate the webhook-receiver application's `ALLOWED_HOSTS` list from the value set for `WEBHOOKRECEIVER_HOST`.
 
 ## Version 2.3.0 (2024-02-07)
 
