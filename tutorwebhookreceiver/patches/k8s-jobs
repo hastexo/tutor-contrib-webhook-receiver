@@ -27,6 +27,8 @@ spec:
               value: '{{ MYSQL_PORT }}'
             - name: DB_MIGRATION_OPTIONS
               value: '{{ WEBHOOKRECEIVER_DB_MIGRATION_OPTIONS|tojson }}'
+            - name: DJANGO_ALLOWED_HOSTS
+              value: '{{ WEBHOOKRECEIVER_HOST }}'
             - name: DJANGO_SECRET_KEY
               value: '{{ WEBHOOKRECEIVER_DJANGO_SECRET_KEY }}'
             - name: DJANGO_WEBHOOK_RECEIVER_LMS_BASE_URL
