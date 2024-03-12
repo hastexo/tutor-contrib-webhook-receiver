@@ -1,3 +1,7 @@
+## Unreleased
+
+* [Enhancement] Make the location and revision of the webhook-receiver application repository configurable.
+
 ## Version 2.3.0 (2024-02-07)
 
 * [Enhancement] Add a new configuration variable, `WEBHOOKRECEIVER_WOOCOMMERCE_REQUIRE_PAYMENT`, for requiring completed payment on WooCommerce orders.

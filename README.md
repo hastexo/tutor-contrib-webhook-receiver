@@ -53,6 +53,8 @@ Configuration
 * `WEBHOOKRECEIVER_DB_MIGRATION_OPTIONS` (default `{}`)
 * `WEBHOOKRECEIVER_DJANGO_LOG_LEVEL` (default `"DEBUG"`)
 * `WEBHOOKRECEIVER_EDX_OAUTH2_KEY` (default `"webhook_receiver"`)
+* `WEBHOOKRECEIVER_REPOSITORY` (default `"https://github.com/hastexo/webhook-receiver.git"`)
+* `WEBHOOKRECEIVER_REVISION` (default `"main"`)
 * `WEBHOOKRECEIVER_SHOPIFY_SHOP_DOMAIN` (default `""`)
 * `WEBHOOKRECEIVER_SHOPIFY_API_KEY` (default `""`)
 * `WEBHOOKRECEIVER_WOOCOMMERCE_SOURCE` (default `""`)
