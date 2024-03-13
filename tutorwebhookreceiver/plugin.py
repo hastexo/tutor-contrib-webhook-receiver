@@ -23,7 +23,7 @@ config = {
             "{{ 'https' if ENABLE_HTTPS else 'http' }}://{{ LMS_HOST }}",
         "EDX_OAUTH2_KEY": "webhook_receiver",
         "REPOSITORY": "https://github.com/hastexo/webhook-receiver.git",  # noqa: E501
-        "REVISION": "main",
+        "REVISION": "olive",
         "SHOPIFY_SHOP_DOMAIN": "",
         "SHOPIFY_API_KEY": "",
         "WOOCOMMERCE_SOURCE": "",
