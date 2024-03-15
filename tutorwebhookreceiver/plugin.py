@@ -1,7 +1,10 @@
 from .__about__ import __version__
 from glob import glob
 import os
-import pkg_resources
+# When Tutor drops support for Python 3.8, we'll need to update this to:
+# from importlib import resources as importlib_resources
+# See: https://github.com/overhangio/tutor/issues/966#issuecomment-1938681102
+import importlib_resources
 from tutor import hooks
 
 
@@ -33,8 +36,8 @@ config = {
 }
 
 for service in ["mysql", "lms", "webhookreceiver"]:
-    path = pkg_resources.resource_filename(
-        "tutorwebhookreceiver", os.path.join(
+    path = str(
+        importlib_resources.files("tutorwebhookreceiver") / os.path.join(
             "templates", "webhookreceiver", "tasks", service, "init")
     )
     with open(path, encoding="utf-8") as task_file:
@@ -59,7 +62,7 @@ hooks.Filters.IMAGES_PUSH.add_item((
 
 # Add the "templates" folder as a template root
 hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
-    pkg_resources.resource_filename("tutorwebhookreceiver", "templates")
+    str(importlib_resources.files("tutorwebhookreceiver") / "templates")
 )
 # Render the "build" and "apps" folders
 hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
@@ -69,12 +72,9 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
     ],
 )
 # Load patches from files
-for path in glob(
-    os.path.join(
-        pkg_resources.resource_filename("tutorwebhookreceiver", "patches"),
-        "*",
-    )
-):
+for path in glob(str(
+        importlib_resources.files("tutorwebhookreceiver") / "patches" / "*")):
+
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item(
             (os.path.basename(path), patch_file.read())

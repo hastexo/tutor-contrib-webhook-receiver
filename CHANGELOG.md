@@ -1,3 +1,7 @@
+## Unreleased
+
+* [Enhancement] Support Python 3.12.
+
 ## Version 2.4.0 (2024-03-13)
 
 * [Enhancement] Make the location and revision of the webhook-receiver application repository configurable.
