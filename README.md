@@ -21,7 +21,7 @@ appropriate one:
 | Nutmeg           | `>=14.0, <15`     | `nutmeg`      | 1.0.x          |
 | Olive            | `>=15.0, <16`     | `olive`       | 2.2.x          |
 | Palm             | `>=16.0, <17`     | `palm`        | 2.3.x          |
-| Quince           | `>=17.0, <18`     | `main`        | 2.4.x          |
+| Quince           | `>=17.0, <18`     | `main`        | >=2.4.0        |
 
 
 [^1]: For Open edX Maple and Tutor 13, you must run version 13.2.0 or
@@ -32,7 +32,7 @@ appropriate one:
 Installation
 ------------
 
-    pip install git+https://github.com/hastexo/tutor-contrib-webhook-receiver@v2.4.0
+    pip install git+https://github.com/hastexo/tutor-contrib-webhook-receiver@v2.5.0
 
 Then, to enable this plugin, run:
 
