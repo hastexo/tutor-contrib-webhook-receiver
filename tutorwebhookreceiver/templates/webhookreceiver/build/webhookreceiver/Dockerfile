@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.11
 ENV PYTHONUNBUFFERED 1
 RUN python3 -m venv /webhook_receiver/venv/
 ENV PATH "/webhook_receiver/venv/bin:$PATH"

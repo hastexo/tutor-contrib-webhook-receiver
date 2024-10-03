@@ -21,8 +21,8 @@ appropriate one:
 | Nutmeg           | `>=14.0, <15`     | `nutmeg`      | 1.0.x          |
 | Olive            | `>=15.0, <16`     | `olive`       | 2.2.x          |
 | Palm             | `>=16.0, <17`     | `palm`        | 2.3.x          |
-| Quince           | `>=17.0, <18`     | `main`        | >=2.4.0        |
-| Redwood          | `>=18.0, <19`     | `main`        | >=2.4.0        |
+| Quince           | `>=17.0, <18`     | `quince`      | `>=2.4.0, <3`  |
+| Redwood          | `>=18.0, <19`     | `main`        | `>=3`          |
 
 
 [^1]: For Open edX Maple and Tutor 13, you must run version 13.2.0 or
