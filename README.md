@@ -23,6 +23,7 @@ appropriate one:
 | Palm             | `>=16.0, <17`     | `palm`        | 2.3.x          |
 | Quince           | `>=17.0, <18`     | `quince`      | `>=2.4.0, <3`  |
 | Redwood          | `>=18.0, <19`     | `main`        | `>=3`          |
+| Sumac            | `>=19.0, <20`     | `main`        | `>=3.1.0`      |
 
 
 [^1]: For Open edX Maple and Tutor 13, you must run version 13.2.0 or
