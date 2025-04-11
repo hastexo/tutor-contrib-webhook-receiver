@@ -16,6 +16,7 @@ config = {
     },
     "defaults": {
         "VERSION": __version__,
+        "BASE_IMAGE": "docker.io/python:3.11",
         "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}webhookreceiver:{{ WEBHOOKRECEIVER_VERSION }}",  # noqa: E501
         "HOST": "webhooks.{{ LMS_HOST }}",
         "DB_NAME": "webhook_receiver",
