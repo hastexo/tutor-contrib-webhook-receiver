@@ -1,4 +1,4 @@
-## Unreleased
+## Version 3.3.0 (2025-07-28)
 
 * [Enhancement] Support Tutor 20 and Open edX Teak.
 
